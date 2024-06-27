@@ -1,0 +1,3 @@
+create SignUp emailaddress="momoduitohan5@gmail.com" firstname="Itohan" age="18" surname="Momodu" password="nol"
+create SignUp emailaddress="momoduviolet2@gmail.com" firstname="Violet"age="18" surname="Momodu" password="njdwk"
+all SignUp

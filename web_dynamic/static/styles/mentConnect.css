@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #e6e6e6;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 60px);
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.intro {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.intro-text {
+    flex: 1;
+    padding: 20px;
+}
+
+.intro-text h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.intro-text p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.signup-form {
+    flex: 1;
+    padding: 20px;
+    background-color: #e6e6e6;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.signup-form h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.signup-form h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.google-signup {
+    background-color: #4285f4;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.google-signup:hover {
+    background-color: #357ae8;
+}
+
+.signup-form p {
+    margin: 10px 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form .password-note {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.signup-button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.signup-button:hover {
+    background-color: #45a049;
+}
+
