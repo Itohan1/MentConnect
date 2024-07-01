@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="../static/styles/main-app.css">
+        <script src="../static/scripts/dropdown.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="dropdown">
+                <img src="../images/icons8-user-30.png" alt="User icon" class="user-icon" id="userIcon">
+                <div class="dropdown-content" id="dropdownContent">
+                    <a href="#role">Role</a>
+                    <a href="#account">Account</a>
+                    <a href="#logout">Logout</a>
+                </div>
+            </div>
+            <form class="search-form" action="/search" method="GET">
+                <input type="search" placeholder="Search..." name="query" class="search-input" required>
+                <button type="submit" class="search-button">Search</button>
+            </form>         
+        </header>
+        <div class="post">
+            <img src="../images/icons8-post-96.png" class="post-icon">
+            <div class="write-post">Posts and Requests</div>
+            <form id="postForm">
+                <textarea id="postContent" rows="4" placeholder="Write y"
+            </form>
+        </div>
+        <footer></footer>
+    </body>
+</html>

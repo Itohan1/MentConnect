@@ -2,36 +2,36 @@
 """"""
 
 import cmd
+import sys
 from datetime import datetime
 from models.basemodel import BaseModel
-from models.Career_path import CareerPath
 from models.Blog import Blog
 from models.Chosen_path import ChosenPath
 from models.Comments import Comments
 from models.Comment_likes import CommentLikes
 from models.Likes import Likes
-from models.Choose_career import ChooseCareer
 from models.Requests import Requests
 from models.Response import Response
 from models.Role import Role
-from models.SignUp import SignUp
+from models.sign import SignUp
 from models.Specialization import Specialization
 from models.Student_points import StudentPoints
-from models import storage
-import uuid
-import os
+from models.__init__ import storage
 import shlex
 
-classes = {"CareerPath": CareerPath, "Comments": Comments, "Blog": Blog,
-        "ChosenPath": ChosenPath, "ChooseCareer": ChooseCareer, "BaseModel": BaseModel, "Likes": Likes,
-        "Response": Response, "Requests": Requests, "CommentsLikes": Comment_Likes, "Role": Role, 
-            "SignUp": SignUp, "Specialization": Specialization, "StudentPoints": StudentPoints
-            }
+classes = {"Comments": Comments, "Blog": Blog,
+        "ChosenPath": ChosenPath, "BaseModel": BaseModel, 
+        "Likes": Likes, "Response": Response, 
+        "Requests": Requests, "CommentsLikes": CommentLikes, 
+        "Role": Role, "SignUp": SignUp, 
+        "Specialization": Specialization, 
+        "StudentPoints": StudentPoints
+        }
 
 class HBNBCommand(cmd.Cmd):
     """"""
 
-    prompt = ('(mentConnect)$ ')
+    prompt = '(mentConnect)$ '
 
     def do_EOF(self, arg):
         """exists how much"""
@@ -70,22 +70,25 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, arg):
         """"""
 
-        arg = arg.split()
-        if len(arg) < 1:
-            print("** class name missing **")
-            return
-        if arg[0] in classes:
-            new_dict = self.k_v_parser(arg[1:])
-            instance = classes[arg[0]](**new_dict)
-            print(instance)
-        else:
-            print("** class doesn't exist **")
-            return
-        print(instance.id)
-        instance.save()
+        try:
+            arg = arg.split()
+            if len(arg) < 1:
+                print("** class name missing **")
+                return False
+            if arg[0] in classes:
+                new_dict = self.k_v_parser(arg[1:])
+                instance = classes[arg[0]](**new_dict)
+                print(instance)
+            else:
+                print("** class doesn't exist **")
+                return False
+            print(instance.id)
+            instance.save()
+        except Exception as e:
+            print(f"Error: {e}")
 
     def do_show(self, arg):
-        """"""
+        """show the class"""
 
         arg = arg.split()
 
@@ -110,7 +113,7 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_destroy(self, arg):
-        """"""
+        """destroy the class"""
 
         arg = arg.split()
 
@@ -133,25 +136,29 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_all(self, arg):
-        """"""
+        """alll the class"""
 
-        arg = shlex.split(arg)
+        args = shlex.split(arg)
         objlist = []
         
-        if len(arg) == 0:
-            all_instance = storage.all()
-        elif arg[0] in classes:
-            objdict = storage.all(classes[arg[0]])
-        else:
-            print("** class doesn't exist **")
-            return
-        for key in objdict:
-            objlist.append(str(objdict[key]))
-        print("[", end="")
-        print(", ".join(objlist), end="")
-        print("]")
+        try:
+            if len(args) == 0:
+                objdict = storage.all()
+            elif args[0] in classes:
+                objdict = storage.all(classes[args[0]])
+            else:
+                print("** class doesn't exist **")
+                return False
+            for key in objdict:
+                objlist.append(str(objdict[key]))
+                print(objlist)
+            print("[", end="")
+            print(", ".join(objlist), end="")
+            print("]")
+        except Exception as e:
+            print(f"Error: {e}")
     def do_update(self, arg):
-        """"""
+        """update the cl;ass"""
 
         arg = arg.split()
 
@@ -202,4 +209,7 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == '__main__':
-    HBNBCommand().cmdloop()
+    try:
+        HBNBCommand().cmdloop()
+    except Exception as e:
+        print(f"Error: {e}")

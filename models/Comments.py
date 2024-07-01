@@ -4,11 +4,11 @@
 import models
 from os import getenv
 import sqlalchemy
-from sqlalchemy.orm import Column, String, ForeignKey
+from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 from models.basemodel import BaseModel, Base
 
-class Comments(BaseModel):
+class Comments(BaseModel, Base):
     """"""
 
     if models.storage_t == 'db':
@@ -28,13 +28,14 @@ class Comments(BaseModel):
 
         super().__init__(*args, **kwargs)
 
+    @property
     def comment_like(self):
-            """"""
-            @property
-            from models.Comment_likes import CommentLikes
-            commentlike_list = []
-            all_commentlike = models.storage.all(CommentLikes)
-            for commentlike in all_commentlike.values():
-                if commentlike.comment_id == self.id:
-                    commentlike_list.append(commentlike)
-            return commentlike_list
+        """"""
+
+        from models.Comment_likes import CommentLikes
+        commentlike_list = []
+        all_commentlike = models.storage.all(CommentLikes)
+        for commentlike in all_commentlike.values():
+            if commentlike.comment_id == self.id:
+                commentlike_list.append(commentlike)
+        return commentlike_list

@@ -1,0 +1,83 @@
+header {
+    background-color: white;
+    border-bottom: 3px orange;
+}
+
+.user-icon {
+    max-width: 100%;
+    width: 30px;
+    height: 30px;
+    margin-right: 100px;
+    margin-bottom: -25px;
+    cursor: pointer;
+}
+
+.search-button {
+    cursor: pointer;
+    background-color: orange;
+    border-radius: 5px;
+    border: None;
+    color: white;
+    width: 70px;
+    height: 30px;
+}
+.search-button:hover {
+    color: orangered;
+}
+.search-input {
+    border-radius: 5px;
+    margin-left: 50px;
+    height: 30px;
+    margin-top: -20px;
+    outline-color: orange;
+    border: None;
+    width: 1100px;
+    background-color: whitesmoke;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    background-color: whitesmoke;
+    position: absolute;
+    z-index: 1;
+    box-shadow:  0px 8px 16px 0px rgba(0,0,0,0.2);
+    min-width: 160px;
+    width: 200px;
+    height: 1200px;
+    display: none;
+    margin-top: -20px;
+}
+.dropdown-content.show {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    font-size: 2em;
+    margin: 50px;
+    color: orange;
+    text-shadow: 3px black;
+}
+
+.post {
+    margin-top: 30px;
+    height: 1000px;
+    width: 300px;
+    background-color: whitesmoke;
+    float: right;
+}
+
+.post-icon {
+    width: 50px;
+}
+.write-post {
+    margin-left: 70px;
+    margin-top: -45px;
+    font-size: 2em;
+    width: 200px;
+    float: right;
+}
+

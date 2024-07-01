@@ -4,7 +4,7 @@
 import models
 from os import getenv
 import sqlalchemy
-from sqlalchemy.orm import Column, String, ForeignKey
+from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 from models.basemodel import BaseModel, Base
 
@@ -13,15 +13,13 @@ class Role(BaseModel, Base):
 
     if models.storage_t == 'db':
         __tablename__ = "role"
-        sign_id = Column(String(60), ForeignKey("sign"), nullable=False)
-        role = Column(String(60), nullable)
+        sign_id = Column(String(60), ForeignKey("sign.id"), nullable=False)
+        role = Column(String(60), nullable=False)
         request = relationship("Requests", backref="role_request")
-        specialization = relationship("Specialization", backref="role_spe")
+
     else:
         sign_id = ""
         role = ""
-        request = ""
-        specialization = ""
 
     def __init__(self, *args, **kwargs):
         """"""

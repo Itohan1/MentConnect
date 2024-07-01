@@ -5,25 +5,26 @@ import json
 import models
 import os
 from models.basemodel import BaseModel
-from models.Career_path import CareerPath
 from models.Blog import Blog
 from models.Chosen_path import ChosenPath
 from models.Comments import Comments
 from models.Comment_likes import CommentLikes
 from models.Likes import Likes
-from models.Choose_career import ChooseCareer
 from models.Requests import Requests
 from models.Response import Response
 from models.Role import Role
-from models.SignUp import SignUp
+from models.sign import SignUp
 from models.Specialization import Specialization
 from models.Student_points import StudentPoints
 
-classes = {"CareerPath": CareerPath, "Comments": Comments, "Blog": Blog,
-        "ChosenPath": ChosenPath, "ChooseCareer": ChooseCareer, "BaseModel": BaseModel, "Likes": Likes,
-        "Response": Response, "Requests": Requests, "CommentsLikes": Comment_Likes, "Role": Role, 
-            "SignUp": SignUp, "Specialization": Specialization, "StudentPoints": StudentPoints
-            }
+classes = {"Comments": Comments, "Blog": Blog, 
+        "ChosenPath": ChosenPath, "BaseModel": BaseModel, 
+        "Likes": Likes, "Response": Response, 
+        "Requests": Requests, "CommentsLikes": Comment_Likes, 
+        "Role": Role, "SignUp": SignUp, 
+        "Specialization": Specialization, 
+        "StudentPoints": StudentPoints
+        }
 class FileStorage:
     """"""
     __file_path = "file.json"
@@ -35,7 +36,7 @@ class FileStorage:
              cls_dict = {}
              for key, value in self.__objects.items():
                     if cls == value.__class__ or cls == value.__class__.__name__:
-                    cls_dict[key] = value
+                        cls_dict[key] = value
              return(cls_dict)
         return self.__objects
 
