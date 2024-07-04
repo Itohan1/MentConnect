@@ -78,6 +78,7 @@ class HBNBCommand(cmd.Cmd):
             if arg[0] in classes:
                 new_dict = self.k_v_parser(arg[1:])
                 instance = classes[arg[0]](**new_dict)
+                del (instance._sa_instance_state)
                 print(instance)
             else:
                 print("** class doesn't exist **")
@@ -128,12 +129,9 @@ class HBNBCommand(cmd.Cmd):
         instance_id = arg[1]
 
         key = "{}.{}".format(class_name, instance_id)
-        instance = storage.all().get(key)
-
-        if instance:
-            print(instance)
-        else:
-            print("** no instance found **")
+        if key in storage.all():
+            storage.all().pop(key)
+            storage.save()
 
     def do_all(self, arg):
         """alll the class"""

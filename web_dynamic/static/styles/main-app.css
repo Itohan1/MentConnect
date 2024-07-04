@@ -63,9 +63,10 @@ header {
 }
 
 .post {
-    margin-top: 30px;
+    margin-top: 50px;
     height: 1000px;
     width: 300px;
+    margin-left: -300px;
     background-color: whitesmoke;
     float: right;
 }
@@ -74,10 +75,124 @@ header {
     width: 50px;
 }
 .write-post {
-    margin-left: 70px;
+    margin-left: 60px;
     margin-top: -45px;
     font-size: 2em;
-    width: 200px;
-    float: right;
+    width: 150px;
+    color: orange;
+    text-shadow: 1px 1px 0px black;
+}
+textarea#postContent {
+    width: 300px;
+    margin-top: 10px;
+    height: 200px;
+    border-color: orange;
+}
+button#post-button {
+    margin-top: 50px;
+    width: 100px;
+    height: 50px;
+    background-color: orange;
+    border: none;
+    color: white;
+    margin-left: 10px;
+    border-radius: 6px;
+    margin-right: -20px;
+    cursor: pointer;
+}
+button#post-button:hover{
+    background-color: orangered;
+    text-shadow: 1px 1px 1px black;
 }
 
+button#request-button {
+    margin-top: 50px;
+    width: 100px;
+    height: 50px;
+    margin-left: 100px;
+    background-color: orange;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+#alertIcon {
+    width: 50px;
+    margin-left: 200px;
+    margin-top: -60px;
+    margin-bottom: 60px;
+}
+button#request-button:hover{
+    background-color: orangered;
+    text-shadow: 1px 1px 1px black;
+}
+.circle {
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    width: 50px;
+    height: 50px;
+    margin-left: 1200px;
+    margin-bottom: -200px;
+    margin-top: 40px;
+    border: none;
+    cursor: pointer;
+}
+.circle:hover {
+    background: orangered;
+    color: black;
+    text-shadow: 2em 1em 1em white;
+}
+.post-display {
+    width: 600px;
+    height: 550px;
+    background-color: whitesmoke;
+    margin-left: 300px;
+    margin-top: 100px;
+    margin-bottom: -600px;
+}
+.name {
+    font-size: 2em;
+    width: 200px;
+    margin-left: 60px;
+    margin-top: -40px;
+    text-shadow: 1px 1px 0px orange;
+}
+.role {
+    background-color: lightgreen;
+    border-top: -50px;
+    text-shadow: 2px 2px 0px white;
+    font-size: 2em;
+    width: 100px;
+}
+.post-user {
+    width: 50px;
+}
+
+.post-blog {
+    background-color: white;
+    width: 500px;
+    margin-left: 50px;
+    margin-top: 50px;
+    height: 300px;
+    font-size: 2em;
+    color: orange;
+}
+.likes-icon {
+    max-width: 5%;
+    margin-top: 30px;
+    margin-left: 500px;
+    cursor: pointer;
+}
+.likes {
+    margin-top: -5px;
+    font-size: 2em;
+    text-shadow: 1px 1px 0px black;
+    color: orange;
+    margin-left: 480px;
+
+}
+.specialization {
+    text-shadow: 1px 1px 0px black;
+    color: orange;
+}

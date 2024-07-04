@@ -18,7 +18,7 @@ def get_roles(sign_id):
         list_roles.append(role.to_dict())
     return jsonify(list_roles)
 
-@app_views.route('/signs/<sign_id>/roles', methods=['POST'], strict_slashes="False")
+@app_views.route('/signs/<sign_id>/roles', methods=['POST'], strict_slashes=False)
 def post_role(sign_id):
     """"""
     sign = storage.get(SignUp, sign_id)
@@ -27,7 +27,7 @@ def post_role(sign_id):
     if not request.get_json():
         abort(400, description="Not a json")
 
-    if role not in request.get_json:
+    if 'role' not in request.get_json():
         abort(400, description="Please choose select role")
 
     data = request.get_json()

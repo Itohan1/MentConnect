@@ -3,7 +3,8 @@
 
 from models import storage
 from api.v1.views import app_views
-from flask import jsonify
+from flask import jsonify, Flask, Response
+import json
 from models.Blog import Blog
 from models.Chosen_path import ChosenPath
 from models.Comments import Comments
@@ -17,28 +18,26 @@ from models.Specialization import Specialization
 from models.Student_points import StudentPoints
 
 @app_views.route('/status', methods=['Get'], strict_slashes=False)
-def status():
+def show():
     """"""
     return jsonify({"status": "OK"})
 
 @app_views.route('/stats', methods=['GET'], strict_slashes=False)
-def number_objects():
+def count():
     """"""
-    classes = {"Comments": Comments, "Blog": Blog,
-        "ChosenPath": ChosenPath, "Likes": Likes,
-        "Response": Response, "Requests": Requests,
-        "CommentsLikes": CommentLikes, "Role": Role,
-        "SignUp": SignUp, "Specialization": Specialization,
-        "StudentPoints": StudentPoints
-        }
 
-    names = ["comments", "blogs", "chosenpaths", "likes", 
-            "responses","requests", "commentlikes", 
-            "roles", "signs", "specializations", 
-            "studentspoints"]
+    response = {"comments": storage.count(Comments), 
+            "blogs": storage.count(Blog), 
+            "chosenpaths": storage.count(ChosenPath), 
+            "likes": storage.count(Likes), 
+            "responses": storage.count(Response), 
+            "requests": storage.count(Requests), 
+            "commentlikes": storage.count(CommentLikes), 
+            "roles": storage.count(Role), 
+            "signs": storage.count(SignUp), 
+            "specializations": storage.count(Specialization), 
+            "studentspoints": storage.count(StudentPoints)
+            }
 
-    num_objects = {}
-    for i in range(len(classes)):
-        num_objects[names[i] = storage.count(classes[i])]
-
-    return jsonify(num_objects)
+    postresponse = jsonify(response)
+    return postresponse

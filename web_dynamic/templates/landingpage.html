@@ -3,33 +3,80 @@
     <head>
         <title><mentconnect></mentconnect></title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="../static/styles/common.css"/>
-        <link rel="stylesheet" href="../static/styles/header.css"/>
-        <link rel="stylesheet" href="../static/styles/footer.css"/>
-        <link rel="stylesheet" href="../static/styles/filters.css"/>
+        <link rel="stylesheet" type="text/css" href="../static/styles/header.css">
+        <script src="../static/scripts/dropdown.js"></script>
+        <script src="../static/scripts/redirectLanding.js" defer></script>
     </head>
     <body>
         <header>
             <div class="container-left-right">
                 <h4>mentConnect<h4>
-                <button class="container-left">Contact us</button>
-                <button class="container-right">About us</button>
+                <button class="container-left" onclick="ContactUsWindow ()">Contact us</button>
+                <button class="container-right" onclick="AboutUsWindow ()">About us</button>
             </div>
         </header>
         <div class="image-container"></div>
         <strong><h1 class="welcome">Welcome to MentConnect</h1></strong>
         <strong><p class="find">Connecting with like minds</p></strong>
-        <button class="third-button"><strong>Get Started</strong></button>
-        <div class="first-highlight">Free Mentorship</div>
-        <div class="first-reason">We offer a free mentorship 
-                platform to connect with mentors who are passionate 
-                about impacting knowledge</div>
-        <div class="second-highlight">Community</div>
-        <div class="second-reason">Meet a community of individuals with shared
-            interests</div>
+        <button class="third-button" onclick="window.location.href='http://itohan/mentconnect'"><strong>Get Started</strong></button>
+        <div class="first-highlight">Blog post and like</div>
+        <img src="../images/Screenshot from 2024-07-04 09-10-34.png" alt="feature1 pics" class="feature1">
+        <div class="first-reason">Users are able to post blogs and like posts</div>
+        <div class="second-highlight">Send Request to Mentors</div>
+        <img src="../images/Screenshot from 2024-07-04 12-00-28.png" alt="feature2 pics" class="feature2">
+        <div class="second-reason">Mentees should be able to 
+            choose their mentors and send a request to them</div>
         <div class="third-highlight">Careerpath Discovery</div>
+        <img src="../images/Screenshot from 2024-07-04 09-09-59.png" alt="feature3 pics" class="feature3">
         <div class="third-reason">Confused about the next step?, MentConnect helps 
                 you discover the right career path</div>
+        <div class="bigAbout">About Us</div>
+        <div class="video-container">
+            <video  id="myVideo">
+                <source src="../images/video explanation of app.webm" type="video/webm">
+            </video>
+            <div id="playOverlay" class="play-overlay">
+                <div class="play-button">&#9658;</div>
+            </div>
+        </div>
+        <div class="moreAbout">I was inspired 
+            by a friend who felt that he didn't have 
+            a chance in the proffessional space and was in s
+            earch of the right mentor. Alot of mentors out 
+            there are passionate about ushering driven individuals into their 
+            career world, I wanted to create a space where a mentee could proudly 
+            Identify themselves as beginners and meet other individuals doing so.
+        </div>
+        <div class="contact-us">Contact Us </div>
+        <div class="contact-container">
+            <div class="Itohan"><strong>Itohan Momodu</strong>
+                <img src="../images/icons8-twitterx-50.png" alt="twitter icon1" class="itohan-twitter">
+                <a href="https://x.com/ItohanMomo?t=mB8gzh9Bh16hJs77xI5c8w&s=08">twitter</a>
+                <img src="../images/icons8-github-50.png" alt="github icon1" class="itohan-github">
+                <a href="https://github.com/Itohan1">github</a>
+                <img src="../images/icons8-linked-in-48.png" alt="linkedin icon1" class="itohan-linkedin">
+                <a href="https://www.linkedin.com/in/itohan-momodu-48b52723a/">linkedIn</a>
+            </div>
+            <div clas="dami"><strong>Damilanre Odunsi</strong>
+                <img src="../images/icons8-twitterx-50.png" alt="twitter icon2" class="dami-twitter">
+                <a href="https://x.com/Dami?t=mB8gzh9Bh16hJs77xI5c8w&s=08">twitter</a>
+                <img src="../images/icons8-github-50.png" alt="github icon2" class="dami-github">
+                <a href="https://github.com/Damilanre-Odunsi">github</a>
+                <img src="../images/icons8-linked-in-48.png" alt="linkedin icon2" class="dami-linkedin">
+                <a href="https://www.linkedin.com/in/ogundahunsi-damilare?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">linkedIn</a>
+            </div>
+            <div class="ore"><strong>Eveshogweyore Alle</strong>
+                <img src="../images/icons8-twitterx-50.png" alt="twitter icon3" class="ore-twitter">
+                <a href="https://x.com/Ore?t=mB8gzh9Bh16hJs77xI5c8w&s=08">twitter</a>
+                <img src="../images/icons8-github-50.png" alt="github icon3" class="ore-github">
+                <a href="https://github.com/Ore">github</a>
+                <img src="../images/icons8-linked-in-48.png" alt="linkedin icon3" class="ore-linkedin">
+                <a href="https://www.linkedin.com/in/Ore-35787/">linkedIn</a>
+            <div class="Repo">
+                <img src="../images/icons8-github-50.png" alt="github icon3" class="ore-github">
+                <a href="https://github.com/Itohan1/mentConnect">MentConnect github</a>
+            </div>
+        </div>
         <footer></footer>
     </body>
 <html>

@@ -18,16 +18,7 @@ from models.Student_points import StudentPoints
 from sqlalchemy.orm import relationship
 from models.basemodel import BaseModel, Base
 
-if models.storage_t == 'db':
-    sign_role = Table('sign_role', Base.metadata,
-            Column('sign_id', String(60),
-                ForeignKey('sign.id', onupdate='CASCADE',
-                    ondelete='CASCADE'),
-                primary_key=True),
-            Column('role_id', String(60),
-                ForeignKey('role.id', onupdate='CASCADE',
-                    ondelete='CASCADE'),
-                primary_key=True))
+
 class SignUp(BaseModel, Base):
     """"""
     if models.storage_t == 'db':
@@ -37,17 +28,15 @@ class SignUp(BaseModel, Base):
         age = Column(String(200), nullable=False)
         surname = Column(String(200), nullable=False)
         password = Column(String(200), nullable=False)
-        likes = relationship("Likes", backref="sign_likes")
-        blog = relationship("Blog", backref="sign_blog")
-        comments = relationship("Comments", backref="sign_comment")
-        roles = relationship("Role", secondary="sign_role",
-                backref="sign_roles",
-                viewonly=False)
-        specializations = relationship("Specialization", backref="sign_specialization")
-        request = relationship("Requests", backref="sign_request")
-        response = relationship("Response", backref="sign_response")
-        points = relationship("StudentPoints", backref="sign_points")
-        chosenpaths = relationship("ChosenPath", backref="sign_chosenpath")
+        likes = relationship("Likes", backref="sign")
+        blog = relationship("Blog", backref="sign")
+        comments = relationship("Comments", backref="sign")
+        roles = relationship("Role", backref="sign")
+        specializations = relationship("Specialization", backref="sign")
+        request = relationship("Requests", backref="sign")
+        response = relationship("Response", backref="sign")
+        points = relationship("StudentPoints", backref="sign")
+        chosenpaths = relationship("ChosenPath", backref="sign")
     else:
         email = ''
         firstname = ''

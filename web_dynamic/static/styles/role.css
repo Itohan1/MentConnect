@@ -1,0 +1,43 @@
+button#mentor-button {
+    background-color: orange;
+    color: white;
+    width: 300px;
+    height: 100px;
+    font-size: 2em;
+    margin-left: 200px;
+    cursor: pointer;
+    border: None;
+    border-radius: 6px;
+    text-shadow: 2px 1px 0 white;
+}
+
+button#mentor-button:hover {
+    background-color: orangered;
+    color: black;
+    text-shadow: 2px 1px 0 black;
+}
+button#mentee-button {
+    background-color: orange;
+    color: white;
+    width: 300px;
+    height: 100px;
+    margin-left: 200px;
+    font-size: 2em;
+    margin-top: 100px;
+    border: none;
+    border-radius: 6px;
+    text-shadow: 2px 1px 0 white;
+    cursor: pointer;
+}
+
+button#mentee-button:hover {
+    background-color: orangered;
+    color: black;
+    text-shadow: 2px 1px 0 black;
+}
+
+.choose {
+    font-size: 3em;
+    margin-left: 450px;
+    color: orange;
+}

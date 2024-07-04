@@ -11,7 +11,7 @@ from models.basemodel import BaseModel, Base
 class CommentLikes(BaseModel, Base):
     """"""
     if models.storage_t == "db":
-        __tablename__ = "comment_likes"
+        __tablename__ = "commentlikes"
         sign_id = Column(String(60), ForeignKey("sign.id"), nullable=False)
         comment_id = Column(String(60), ForeignKey("comments.id"), nullable=False)
         comment_likes = Column(Integer, default=0)

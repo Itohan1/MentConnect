@@ -4,7 +4,7 @@
 import models
 from os import getenv
 import sqlalchemy
-from sqlalchemy import Column, String, ForeignKey
+from sqlalchemy import Column, String, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from models.basemodel import BaseModel, Base
 
@@ -15,7 +15,7 @@ class Requests(BaseModel, Base):
         __tablename__ = "request"
         sign_id = Column(String(60), ForeignKey("sign.id"), nullable=False)
         role_id = Column(String(60), ForeignKey("role.id"), nullable=False)
-        requests = Column(String(200), nullable=False)
+        requests = Column(String(255), nullable=True)
         response = relationship("Response", backref="request")
     else:
         sign_id = ""
@@ -27,14 +27,15 @@ class Requests(BaseModel, Base):
         """"""
         super().__init__(self, *args, **kwargs)
 
-    @property
-    def response(self):
-        """"""
+    if models.storage_t != 'db':
+        @property
+        def response(self):
+            """"""
 
-        from models.Response import Response
-        response_list = []
-        all_response = models.storage.all(Response)
-        for response in all_response.values():
-            if response.request_id == self.id:
-                response_list.append(response)
-        return response_list
+            from models.Response import Response
+            response_list = []
+            all_response = models.storage.all(Response)
+            for response in all_response.values():
+                if response.request_id == self.id:
+                    response_list.append(response)
+            return response_list

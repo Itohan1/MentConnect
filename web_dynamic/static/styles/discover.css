@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: white;
+}
+
+#questionnaire {
+    max-width: 600px;
+    margin: 0 auto;
+    background: whitesmoke;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.2em;
+}
+
+button.answer {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    font-size: 1em;
+    background-color: orange;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button.answer:hover {
+    background-color: orangered;
+}
+
+div.conclusion {
+    margin-top: 20px;
+}
+
+#conclusion {
+    font-weight: bold;
+}
+
+button#getStarted {
+    display: block;
+    width: 20%;
+    margin-left: 500px;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 1em;
+    background-color: orange;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button#getStarted:hover {
+    background-color: orangered;
+}
+.conclusion {
+    color: orange;
+    font-size: 3rem;
+    text-shadow: 2px 2px 0 orange;
+}

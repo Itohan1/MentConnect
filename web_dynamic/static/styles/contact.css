@@ -1,0 +1,19 @@
+.contact {
+    font-size: 3em;
+    background-color: orange;
+    width: 450px;
+    height: 300px;
+    text-align: center;
+    margin-left: 400px;
+    text-shadow: 2px black;
+    border-radius: 6px;
+}
+header {
+    font-size: 3em;
+    width: 500px;
+    margin-left: 390px;
+    text-shadow: 2px 2px 0 white;
+}
+body {
+    background-color: grey;
+}

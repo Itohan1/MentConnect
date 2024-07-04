@@ -2,7 +2,7 @@
 """"""
 
 import models
-from models.basemodel import Base
+from models.basemodel import BaseModel, Base
 from models.Blog import Blog
 from models.Chosen_path import ChosenPath
 from models.Comments import Comments
@@ -96,7 +96,7 @@ class DBStorage():
             return None
 
         all_class = models.storage.all(cls)
-        for value in all_cls.values():
+        for value in all_class.values():
             if (value.id == id):
                 return value
         return None

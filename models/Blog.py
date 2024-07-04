@@ -13,8 +13,8 @@ class Blog(BaseModel, Base):
     if models.storage_t == "db":
         __tablename__ = 'blog'
         sign_id = Column(String(60), ForeignKey('sign.id'), nullable=False)
-        likes = relationship("Likes", backref="blog")
-        comments = relationship("Comments", backref="blog")
+        likes = relationship("Likes", backref="blogs")
+        comments = relationship("Comments", backref="blogs")
         blog = Column(String(200), nullable=False)
     else:
         sign_id = ""

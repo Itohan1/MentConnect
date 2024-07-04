@@ -1,0 +1,17 @@
+.about {
+    background-color: orange;
+    width: 300;
+    height: 500px;
+    font-size: 3em;
+    color: white;
+    max-width: 80%;
+    margin-left: 150px;
+    border-radius: 6px;
+    text-align: center;    
+}
+
+header {
+    text-align: center;
+    font-size: 2em;
+}
+

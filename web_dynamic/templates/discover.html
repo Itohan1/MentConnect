@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Path Quiz</title>
+    <script src="../static/scripts/redirect.js"></script>
+    <script src="../static/scripts/discover.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="../static/styles/discover.css">
+</head>
+<body>
+    <div id="questionnaire">
+        <div class="question" data-question="1">
+            <h2>Question 1: What do you enjoy doing the most?</h2>
+            <button class="answer" data-answer="creative">Creating art</button>
+            <button class="answer" data-answer="analytical">Solving puzzles</button>
+            <button class="answer" data-answer="helping">Helping others</button>
+        </div>
+        <div class="question" data-question="2">
+            <h2>Question 2: Which environment do you prefer?</h2>
+            <button class="answer" data-answer="office">Office</button>
+            <button class="answer" data-answer="outdoors">Outdoors</button>
+            <button class="answer" data-answer="home">Work from home</button>
+        </div>
+        <div class="question" data-question="3">
+            <h2>Question 3: What motivates you?</h2>
+            <button class="answer" data-answer="money">High salary</button>
+            <button class="answer" data-answer="growth">Career growth</button>
+            <button class="answer" data-answer="impact">Making an impact</button>
+        </div>
+    </div>
+    <div>
+        <div class="conclusion">Conclusion:
+            <p id="conclusion"></p>
+        </div>
+    </div>
+    <button id="getStarted" onclick="MainAppWindow ()">Get Started</button>
+</body>
+</html>

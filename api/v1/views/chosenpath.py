@@ -8,7 +8,7 @@ from api.v1.views import app_views
 from flask import abort, jsonify, make_response, request
 
 @app_views.route('/signs/<sign_id>/chosenpaths', methods=['GET'], strict_slashes=False)
-def get_chosenpath(sign_id):
+def get_chosenpaths(sign_id):
     """"""
     list_chosenpaths = []
     sign = storage.get(SignUp, sign_id)
@@ -17,6 +17,14 @@ def get_chosenpath(sign_id):
     for chosenpath in sign.chosenpaths:
         list_chosenpaths.append(chosenpath.to_dict())
     return jsonify(list_chosenpaths)
+
+@app_views.route('/chosenpaths/<chosenpath_id>', methods=['GET'], strict_slashes=False)
+def get_chosenpath(chosenpath_id):
+    """"""
+    chosenpath = storage.get(ChosenPath, chosenpath_id)
+    if not chosenpath:
+        abort(404)
+    return jsonify(chosenpath.to_dict())
 
 @app_views.route('/chosenpaths/<chosenpath_id>', methods=['DELETE'], strict_slashes=False)
 def delete_chosenpath(chosenpath_id):
@@ -27,7 +35,7 @@ def delete_chosenpath(chosenpath_id):
     storage.delete(chosenpath)
     storage.save()
 
-@app_views.route('/signs/<sign_id>/chosenpaths', methods=['POST'], strict_slashes="False")
+@app_views.route('/signs/<sign_id>/chosenpaths', methods=['POST'], strict_slashes=False)
 def post_chosenpath(sign_id):
     """"""
     sign = storage.get(SignUp, sign_id)
@@ -36,7 +44,7 @@ def post_chosenpath(sign_id):
     if not request.get_json():
         abort(400, description="Not a json")
 
-    if chosenpath not in request.get_json:
+    if 'career_name' not in request.get_json():
         abort(400, description="Please choosepath")
 
     data = request.get_json()
@@ -45,7 +53,7 @@ def post_chosenpath(sign_id):
     instance.save()
     return make_response(jsonify(instance.to_dict()), 201)
 
-@app_views.route('/chosenpaths/chosenpath_id', method=['PUT'], strict_slahes=False)
+@app_views.route('/chosenpaths/<chosenpath_id>', methods=['PUT'], strict_slashes=False)
 def put_chosenpath(chosenpath_id):
     """"""
     chosenpath = storage.get(ChosenPath, chosenpath_id)
@@ -62,4 +70,4 @@ def put_chosenpath(chosenpath_id):
         if key not in ignore:
             setattr(chosenpath, key, value)
     storage.save()
-    return make_resonse(jsonify(chosenpath.to_dict()), 201)
+    return make_response(jsonify(chosenpath.to_dict()), 201)

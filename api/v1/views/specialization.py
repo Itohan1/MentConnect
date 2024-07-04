@@ -27,7 +27,7 @@ def delete_specialization(specialization_id):
     storage.delete(specialization)
     storage.save()
 
-@app_views.route('/signs/<sign_id>/specializations', methods=['POST'], strict_slashes="False")
+@app_views.route('/signs/<sign_id>/specializations', methods=['POST'], strict_slashes=False)
 def post_specialization(sign_id):
     """"""
     sign = storage.get(SignUp, sign_id)
@@ -36,7 +36,7 @@ def post_specialization(sign_id):
     if not request.get_json():
         abort(400, description="Not a json")
 
-    if specialization not in request.get_json:
+    if 'specialization' not in request.get_json():
         abort(400, description="Please select specialization")
 
     data = request.get_json()
@@ -45,7 +45,7 @@ def post_specialization(sign_id):
     instance.save()
     return make_response(jsonify(instance.to_dict()), 201)
 
-@app_views.route('/specializations/specialization_id', method=['PUT'], strict_slahes=False)
+@app_views.route('/specializations/specialization_id', methods=['PUT'], strict_slashes=False)
 def put_specialization(specialization_id):
     """"""
     specialization = storage.get(Specialization, specialization_id)
