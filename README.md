@@ -2,7 +2,7 @@
 
 # Introduction
 
-[app questionaires](discovering your path.png)
+[app questionaires](/discovering\ your\ path.png)
 [Screenshort of app](Screenshot from 2024-07-04 09-09-59.png)
 [videos from app page](video explanation of app.webm)
 MentConnect is a platform designed to connect mentees with mentors, helping individuals find guidance and support in their professional journeys. Users can post blogs, like posts, send requests to mentors, and discover the right career paths. The platform was inspired by a need to bridge the gap between aspiring professionals and experienced mentors
