@@ -1,7 +1,6 @@
 # MentConnect
 
 # Introduction
-
 ![App questionaires](/discovering\ your\ path.png)
 ![Screenshort of app](Screenshot from 2024-07-04 09-09-59.png)
 ![Videos from app page](video explanation of app.webm)
