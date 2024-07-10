@@ -5,12 +5,9 @@
 	<img src="Screenshot%20from%202024-07-04%2009-09-59.png" alt="screenshort from app" width="500" height="300">
 	<img src="discovering%20your%20path.png" alt="app questionaire" width="500" height="300">
 </div>
-<div style="text-align: center;">
-    <video width="500" height="300" controls>
+<video width="500" height="300" controls>
         <source src="video%20explanation%20of%20app.webm" type="video/webm">
-        Your browser does not support the video tag.
-    </video>
-</div>
+</video>
 MentConnect is a platform designed to connect mentees with mentors, helping individuals find guidance and support in their professional journeys. Users can post blogs, like posts, send requests to mentors, and discover the right career paths. The platform was inspired by a need to bridge the gap between aspiring professionals and experienced mentors
 
 # Inspiration
