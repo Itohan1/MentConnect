@@ -1,7 +1,7 @@
 # MentConnect
 
 # Introduction
-![Screenshort of app](Screenshot%20from%202024-07-04%2009-09-59.png)
+<img src="Screenshot%20from%202024-07-04%2009-09-59.png" alt="mentee questionaire" width="300" height="200">
 ![App questionaires](discovering%20your%20path.png)
 ![Videos from app page](video%20explanation%20of%20app.webm)
 
