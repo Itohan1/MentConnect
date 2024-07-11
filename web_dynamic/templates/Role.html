@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title><mentconnect></mentconnect></title>
         <meta charset="UTF-8">
-
-        <link rel="stylesheet" href="../static/styles/role.css"/>
-        <script src="../static/scripts/role.js" defer></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../static/styles/role.css">
+	<script src="https://www.itohan.tech/static/scripts/role.js"></script>
     </head>
     <body>
         <strong><div class="choose">Choose A Role</div></strong>
         <button id="mentor-button">Mentor</button>
         <button id="mentee-button">Mentee</button>
+	<div id="specialization-container" style="display-none;">
+	<strong><div class="choose">Choose A Specialization</div></strong>
+	<select id="specialization-dropdown">
+		<option value="">Select Specialization</option>
+		<option value="Software Development">Software Development</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Cyber Security">Cyber Security</option>
+                <option value="Product Management">Product Management</option>
+                <option value="Digital Marketing">Digital Marketing</option>
+                <option value="UI/UX Design">UI/UX Design</option>
+                <option value="AI and Machine Learning">AI and Machine Learning</option>
+                <option value="Blockchain">Blockchain</option>
+                <option value="Cloud Computing">Cloud Computing</option>
+                <option value="DevOps">DevOps</option>
+	</select>
+	<button id="submit-specialization">Submit Specialization</button>
     </body>
 </html>

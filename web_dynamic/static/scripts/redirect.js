@@ -3,17 +3,17 @@ function GoToMainWindow() {
 }
 
 function ChoosePathWindow() {
-    window.location.href = "discover.html"
+    window.location.href = "discover.html";
 }
 
 function MainAppWindow() {
-    window.location.href = "main-app.html"
+    window.location.href = "main-app.html";
 }
 
 function ContactUsWindow () {
-    window.location.href = "contactUs.html"
+    window.location.href = "contactUs.html";
 }
 
 function AboutUsWindow () {
-    window.location.href = "aboutUs.html"
+    window.location.href = "aboutUs.html";
 }

@@ -7,7 +7,6 @@ from api.v1.views import app_views
 from flask import abort, jsonify, make_response, request
 
 @app_views.route('/signs', methods=['GET'], strict_slashes=False)
-@app_views.route('/signs/<string:id>', methods=['GET'], strict_slashes=False)
 def get_signs(id=None):
     """"""
     if id is None:
@@ -58,7 +57,9 @@ def post_signs():
     data = request.get_json()
     instance = SignUp(**data)
     instance.save()
-    return make_response(jsonify(instance.to_dict()), 201)
+    response =  make_response(jsonify(instance.to_dict()), 201)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 @app_views.route('/signs/<sign_id>', methods=['PUT'], strict_slashes=False)
 def put_signs(sign_id):
@@ -79,3 +80,11 @@ def put_signs(sign_id):
             setattr(sign, key, value)
     storage.save()
     return make_response(jsonify(sign.to_dict()), 200)
+
+@app_views.route('/signs', methods=['OPTIONS'], strict_slashes=False)
+def signs_options():
+    response = make_response()
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+    return response
