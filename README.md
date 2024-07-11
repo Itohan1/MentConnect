@@ -2,8 +2,13 @@
 
 # Introduction
 <div style="display: flex; gap:10px;">
+<<<<<<< HEAD
         <img src="Screenshot%20from%202024-07-04%2009-09-59.png" alt="screenshort from app" width="500" height="300">
         <img src="discovering%20your%20path.png" alt="app questionaire" width="500" height="300">
+=======
+	<img src="Screenshot%20from%202024-07-04%2009-09-59.png" alt="screenshort from app" width="500" height="300">
+	<img src="discovering%20your%20path.png" alt="app questionaire" width="500" height="300">
+>>>>>>> c8b47b7a9c267a46f8ab08427b8cad856d3f102e
 </div>
 <video width="500" height="300" controls>
         <source src="video%20explanation%20of%20app.webm" type="video/webm">
@@ -11,7 +16,11 @@
 MentConnect is a platform designed to connect mentees with mentors, helping individuals find guidance and support in their professional journeys. Users can post blogs, like posts, send requests to mentors, and discover the right career paths. The platform was inspired by a need to bridge the gap between aspiring professionals and experienced mentors
 
 # Inspiration
+<<<<<<< HEAD
 We all had a lot of ideas of what to build, especially me though, that was one of the reasons I joined the Alx program afterall, to be able to see my many ideas come to life, and after much deliberation we finally decided mentConnect was ito had so many questions about his dream career path but wasn't getting the right answers, I wanted more than anything to create a platform that would somehow match mentees with passionate mentors with relatable stories and incorporating that algorithm in our application would be our next key performance indicator.
+=======
+We all had a lot of ideas of what to build, especially me though, that was one of the reasons I joined the Alx program afterall, to be able to see my many ideas come to life, and after much deliberation we finally decided mentConnect was it. Personally I had my reasons why I wanted to bring this home, I had a friend who had so many questions about his dream career path but wasn't getting the right answers, I wanted more than anything to create a platform that would somehow match mentees with passionate mentors with relatable stories and incorporating that algorithm in our application would be our next key performance indicator.
+>>>>>>> c8b47b7a9c267a46f8ab08427b8cad856d3f102e
 
 #Data Collection
 After signUp a user can either choose a role as a men
@@ -80,4 +89,7 @@ Here are some related projects that might interest you:
 ## Licensing
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+<<<<<<< HEAD
 
+=======
+>>>>>>> c8b47b7a9c267a46f8ab08427b8cad856d3f102e
