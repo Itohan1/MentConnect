@@ -34,6 +34,11 @@ def choosepath():
 def role():
     return render_template('Role.html')
 
+@app.route('/discover', strict_slashes=False)
+def discoverpath():
+    return render_template('discover.html')
+
+
 if __name__ == "__main__":
     """ Main Function """
     app.run(host='0.0.0.0', port=5000)

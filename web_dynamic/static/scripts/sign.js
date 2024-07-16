@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
             password: formData.get("password")
         };
         try {
-            const response = await fetch(`https://www.itohan.tech/api/v1/signs`, {
+            const response = await fetch(`https://www.itohan.tech/api/v1/signs/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("Sign Up successful!");
                 window.location.href = "Role.html";
             } else {
+		    console.log(response);
                 console.error('Sign Up failed');
                 alert("Sign Up failed!");
             }

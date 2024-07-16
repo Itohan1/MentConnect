@@ -1,10 +1,10 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
     const questions = document.querySelectorAll(".question");
     const conclusionElement = document.getElementById("conclusion");
     const getStartedButton = document.getElementById("getStarted");
 
     let responses = {};
-    const signupId = localStorage.getItem("signupId");
+    const signupId = await getSignFromCookie();
 
     if (!signupId) {
         console.error('No signup ID found. Please sign up first.');
@@ -42,14 +42,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     async function saveConclusion(conclusion, signupId) {
-        localStorage.setItem("careerConclusion", conclusion);
-
-        const response = await fetch(`http://localhost:5000/api/v1/signup/${signupId}/chosenpath`, {
+        const data = {
+		career_name: conclusion,
+		sign_id: signupId
+	}
+        const response = await fetch(`https://www.itohan.tech/api/v1/signs/${signupId}/chosenpaths`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ conclusion })
+            body: JSON.stringify(data)
         });
 
         if (!response.ok) {
@@ -57,8 +59,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function loadConclusion() {
-        const savedConclusion = localStorage.getItem("careerConclusion");
+    async function loadConclusion() {
+        const savedConclusion = await getChosenPathFromCookie();
+
         if (savedConclusion) {
             conclusionElement.textContent = savedConclusion;
         }
@@ -66,12 +69,55 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loadConclusion();
 
-    getStartedButton.addEventListener("click", () => {
-        const savedConclusion = localStorage.getItem("careerConclusion");
+    getStartedButton.addEventListener("click", async () => {
+        const savedConclusion = await getChosenPathFromCookie();
         if (savedConclusion) {
-            window.location.href = `main.html?signupId=${signupId}`;
+            window.location.href = `main-app.html?signupId=${signupId}`;
         } else {
             alert("You must complete the quiz to get started.");
         }
     });
 });
+
+async function getSignFromCookie() {
+    try {
+        const response = await fetch(`https://www.itohan.tech/api/v1/signcookie`, {
+            method: 'GET',
+            credentials: 'include'
+        });
+
+        if (!response.ok) {
+            console.error('Failed to fetch sign from cookie:', response.status);
+            return null;
+        }
+
+        const result = await response.json();
+        console.log('Sign data:', result);
+        return result.id;
+    } catch (error) {
+        console.error('Error fetching sign from cookie:', error);
+        return null;
+    }
+}
+
+async function getChosenPathFromCookie() {
+    try {
+        const response = await fetch(`https://www.itohan.tech/api/v1/chosencookie`, {
+            method: 'GET',
+            credentials: 'include'
+        });
+
+        if (!response.ok) {
+            console.error('Failed to fetch chosen_path from cookie:', response.status);
+            return null;
+        }
+
+        const result = await response.json();
+        console.log('Chosen data:', result);
+        return result.career_name;
+    } catch (error) {
+        console.error('Error fetching chosen_path from cookie:', error);
+        return null;
+    }
+}
+
