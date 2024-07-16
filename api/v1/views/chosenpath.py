@@ -51,7 +51,24 @@ def post_chosenpath(sign_id):
     instance = ChosenPath(**data)
     instance.sign_id = sign.id
     instance.save()
-    return make_response(jsonify(instance.to_dict()), 201)
+    chosen_id = str(instance.sign_id)
+    response = make_response(jsonify(instance.to_dict()), 201)
+    response.set_cookie('chosen_id', chosen_id, secure=True, path='/')
+    return response
+
+@app_views.route('/chosencookie', methods=['GET'], strict_slashes=False)
+def chosen_path():
+    logging.debug("Entering protected_resource endpoint")
+    chosen_id = request.cookies.get('chosen_id')
+    logging.debug(f"Retrieved chosen_id from cookies: {chosen_id}")
+    if not chosen_id:
+        return jsonify({"error": "Chosen ID cookie not found"}), 400
+
+    chosen = storage.get(ChosenPath, chosen_id)
+    if not chosen:
+        return jsonify({"error": "Invalid Chosen ID"}), 404
+
+    return jsonify(chosen.to_dict())
 
 @app_views.route('/chosenpaths/<chosenpath_id>', methods=['PUT'], strict_slashes=False)
 def put_chosenpath(chosenpath_id):

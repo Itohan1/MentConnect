@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 """"""
 
+import logging
 from models.sign import SignUp
 from models import storage
 from api.v1.views import app_views
 from flask import abort, jsonify, make_response, request
+logging.basicConfig(level=logging.DEBUG)
 
 @app_views.route('/signs', methods=['GET'], strict_slashes=False)
 def get_signs(id=None):
@@ -27,6 +29,20 @@ def get_sign(sign_id):
     sign = storage.get(SignUp, sign_id)
     if not sign:
         abort(404)
+    return jsonify(sign.to_dict())
+
+@app_views.route('/signcookie', methods=['GET'], strict_slashes=False)
+def protected_resource():
+    logging.debug("Entering protected_resource endpoint")
+    sign_id = request.cookies.get('sign_id')
+    logging.debug(f"Retrieved sign_id from cookies: {sign_id}")
+    if not sign_id:
+        return jsonify({"error": "Sign ID cookie not found"}), 400
+
+    sign = storage.get(SignUp, sign_id)
+    if not sign:
+        return jsonify({"error": "Invalid Sign ID"}), 404
+
     return jsonify(sign.to_dict())
 
 @app_views.route('/signs/<sign_id>', methods=['DELETE'], strict_slashes=False)
@@ -57,8 +73,10 @@ def post_signs():
     data = request.get_json()
     instance = SignUp(**data)
     instance.save()
+    sign_id = str(instance.id)
+    logging.debug(f"Generated sign_id: {sign_id}")
     response =  make_response(jsonify(instance.to_dict()), 201)
-    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.set_cookie('sign_id', sign_id, secure=True, path='/')
     return response
 
 @app_views.route('/signs/<sign_id>', methods=['PUT'], strict_slashes=False)
@@ -81,10 +99,3 @@ def put_signs(sign_id):
     storage.save()
     return make_response(jsonify(sign.to_dict()), 200)
 
-@app_views.route('/signs', methods=['OPTIONS'], strict_slashes=False)
-def signs_options():
-    response = make_response()
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    response.headers.add('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization')
-    return response
