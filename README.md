@@ -2,8 +2,8 @@
 
 # Introduction
 <div style="display: flex; gap: 10px;">
-        <img src="Screenshot%20from%202024-07-04%2009-09-59.png" alt="screenshort from app" width="500" height="300">
-        <img src="discovering%20your%20path.png" alt="app questionaire" width="500" height="300">
+        <img src="Screenshot%20from%202024-07-04%2009-09-59.png" alt="screenshort from app" width="300" height="200">
+        <img src="discovering%20your%20path.png" alt="app questionaire" width="300" height="200">
 </div>
 <video width="500" height="300" controls>
         <source src="video%20explanation%20of%20app.webm" type="video/webm">
