@@ -43,8 +43,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     async function saveConclusion(conclusion, signupId) {
         const data = {
-		career_name: conclusion,
-		sign_id: signupId
+		career_name: conclusion
 	}
         const response = await fetch(`https://www.itohan.tech/api/v1/signs/${signupId}/chosenpaths`, {
             method: 'POST',
@@ -103,8 +102,8 @@ async function getSignFromCookie() {
 async function getChosenPathFromCookie() {
     try {
         const response = await fetch(`https://www.itohan.tech/api/v1/chosencookie`, {
-            method: 'GET',
-            credentials: 'include'
+		method: 'GET',
+		credentials: 'include'
         });
 
         if (!response.ok) {
@@ -120,4 +119,3 @@ async function getChosenPathFromCookie() {
         return null;
     }
 }
-

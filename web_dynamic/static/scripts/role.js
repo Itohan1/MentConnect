@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('mentee-button').addEventListener('click', async () => {
         await sendRole('mentee');
-        window.location.href = 'discover.html';
+        window.location.href = 'choosepath.html';
     });
 
     document.getElementById('submit-specialization').addEventListener('click', () => {
