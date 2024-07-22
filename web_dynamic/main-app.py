@@ -36,11 +36,6 @@ def role():
 
 @app.route('/discover', strict_slashes=False)
 def discoverpath():
-    all_specialization = storage.all(Specialization).values()
-    list_special = []
-    for list in all_specialization:
-        list_special.append(list.to_dict())
-    new_list = next((for special in list_special if special['specialization'] == 'engineering'), None)
     return render_template('discover.html', new_list)
 
 if __name__ == "__main__":

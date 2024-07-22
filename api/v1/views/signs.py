@@ -99,3 +99,14 @@ def put_signs(sign_id):
     storage.save()
     return make_response(jsonify(sign.to_dict()), 200)
 
+@app_views.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    email = data.get('email')
+    password = data.get('password')
+
+    users = storage.all(SignUp).values()
+    list_user = []
+    for sign in users:
+        list_user.append(users.to_dict())
+        user = next((u for u in list_users if u['email'] == email and u['password'] == password), None)

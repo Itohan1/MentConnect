@@ -10,3 +10,5 @@ from api.v1.views.role import *
 from api.v1.views.specialization import *
 from api.v1.views.requests import *
 from api.v1.views.signs import *
+from api.v1.views.blog import *
+from api.v1.views.comments import *
